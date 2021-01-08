@@ -1,6 +1,9 @@
 {
   "name": "blog-starter",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/yukidaruma/blog.yuki.games"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
