@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Layout from '../../components/layout';
 import PostBody from '../../components/post-body';
+import PostFooter from '../../components/post-footer';
 import PostHeader from '../../components/post-header';
 import PostTitle from '../../components/post-title';
 import { getAllPosts, getPostBySlug } from '../../lib/api';
@@ -30,12 +31,14 @@ export default function Post({ post, morePosts, preview }) {
               )}
             </Head>
             <PostHeader
+              slug={post.filename}
               title={post.title}
               coverImage={post.coverImage}
               date={post.date}
               author={post.author}
             />
             <PostBody content={post.content} />
+            <PostFooter filePath={post.filePath} />
           </article>
         </>
       )}
@@ -48,7 +51,7 @@ export async function getStaticProps({ params }) {
     'title',
     'date',
     'slug',
-    'author',
+    'filePath',
     'content',
     'ogImage',
     'coverImage',
