@@ -13,3 +13,9 @@
 /* Stop purging. */
 
 /* Your own custom utilities */
+
+a {
+  color: #15315c;
+  cursor: pointer;
+  text-decoration: underline;
+}

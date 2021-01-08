@@ -8,35 +8,21 @@ export default function Footer() {
         <div className="py-8 flex flex-col lg:flex-row items-center">
           <div>
             <p>
-              This blog is made by{' '}
-              <a className="underline" href={TWITTER_URL}>
-                @Yukinkling
-              </a>
-              .
+              This blog is made by <a href={TWITTER_URL}>@Yukinkling</a>.
             </p>
 
             <p className="mt-4">
               The source code for this blog is{' '}
-              <a
-                className="underline hover:text-success duration-200 transition-colors"
-                href={REPO_URL}>
+              <a className="hover:text-success duration-200 transition-colors" href={REPO_URL}>
                 available on GitHub
               </a>
               .
             </p>
             <p>
-              Made with{' '}
-              <a className="underline" href="https://github.com/vercel/next.js">
-                Next.js
-              </a>
-              .
+              Made with <a href="https://github.com/vercel/next.js">Next.js</a>.
             </p>
             <p>
-              Hosted on{' '}
-              <a className="underline" href="https://vercel.com/">
-                Vercel
-              </a>
-              .
+              Hosted on <a href="https://vercel.com/">Vercel</a>.
             </p>
           </div>
         </div>
