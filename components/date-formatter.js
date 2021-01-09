@@ -1,6 +1,7 @@
 import { format, parseISO } from 'date-fns';
 
-export default function DateFormatter({ dateString }) {
+export default function DateFormatter({ dateString, fullDate }) {
   const date = parseISO(dateString);
-  return <time dateTime={dateString}>{format(date, 'yyyy-MM-dd hh:mm aaaa')}</time>;
+  const dateFormat = 'yyyy-MM-dd' + (fullDate ? ' hh:mm aaaa' : '');
+  return <time dateTime={dateString}>{format(date, dateFormat)}</time>;
 }

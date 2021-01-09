@@ -21,10 +21,10 @@ export default function Post({ post, morePosts, preview }) {
         <PostTitle>Loading…</PostTitle>
       ) : (
         <>
-          <article className="mb-32">
+          <article className="my-4 md:my-8 lg:my-12">
             <Head>
               <title>
-                {post.title} | Next.js Blog Example with {CMS_NAME}
+                {post.title} | {CMS_NAME}
               </title>
               {post.ogImage && post.ogImage.url && (
                 <meta property="og:image" content={post.ogImage.url} />
@@ -35,7 +35,7 @@ export default function Post({ post, morePosts, preview }) {
               title={post.title}
               coverImage={post.coverImage}
               date={post.date}
-              author={post.author}
+              filePath={post.filePath}
             />
             <PostBody content={post.content} />
             <PostFooter filePath={post.filePath} />
