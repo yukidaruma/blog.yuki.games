@@ -2,8 +2,11 @@ import markdownStyles from './markdown-styles.module.css';
 
 export default function PostBody({ content }) {
   return (
-    <div className="max-w-2xl">
-      <div className={markdownStyles['markdown']} dangerouslySetInnerHTML={{ __html: content }} />
+    <div className="post-body">
+      <div
+        className={markdownStyles['markdown-body']}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
     </div>
   );
 }

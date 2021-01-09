@@ -19,3 +19,26 @@ a {
   cursor: pointer;
   text-decoration: underline;
 }
+
+.post-body :not(pre) > code {
+  color: #e83e8c;
+}
+
+.post-body figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.post-body figure img {
+  background-color: lightgray;
+  max-width: 75%;
+}
+@media screen and (max-width: 640px) {
+  .post-body figure img {
+    max-width: 100%;
+  }
+}
+.post-body figure figcaption {
+  margin-top: 0.5em;
+  font-size: 90%;
+}
