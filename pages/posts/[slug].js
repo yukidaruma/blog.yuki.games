@@ -6,11 +6,11 @@ import PostBody from '../../components/post-body';
 import PostFooter from '../../components/post-footer';
 import PostHeader from '../../components/post-header';
 import PostTitle from '../../components/post-title';
-import { getAllPosts, getPostBySlug } from '../../lib/api';
+import { getAdjacentPosts, getAllPosts, getPostBySlug } from '../../lib/api';
 import { CMS_NAME } from '../../lib/constants';
 import markdownToHtml from '../../lib/markdownToHtml';
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ post, prevPost, nextPost, preview }) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -38,7 +38,7 @@ export default function Post({ post, morePosts, preview }) {
               filePath={post.filePath}
             />
             <PostBody content={post.content} />
-            <PostFooter filePath={post.filePath} />
+            <PostFooter prevPost={prevPost} nextPost={nextPost} />
           </article>
         </>
       )}
@@ -47,7 +47,8 @@ export default function Post({ post, morePosts, preview }) {
 }
 
 export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug, [
+  const { slug } = params;
+  const post = getPostBySlug(slug, [
     'title',
     'date',
     'slug',
@@ -56,6 +57,7 @@ export async function getStaticProps({ params }) {
     'ogImage',
     'coverImage',
   ]);
+  const [prevPost, nextPost] = getAdjacentPosts(slug);
   const content = await markdownToHtml(post.content || '');
 
   return {
@@ -64,6 +66,8 @@ export async function getStaticProps({ params }) {
         ...post,
         content,
       },
+      prevPost,
+      nextPost,
     },
   };
 }
