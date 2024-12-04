@@ -1,7 +1,8 @@
 ---
-excerpt: 'VInput を拡張し、ファイルサイズによるバリデーションを実装してみます'
+excerpt: 'VInput を拡張し、ファイルサイズによるバリデーションを実装する'
 title: 'Vuetify: 入力コンポーネントにカスタムバリデーションを実装する'
 date: '2021-01-09T18:00:00+09:00'
+coverImage: '/assets/a.png'
 ---
 
 この記事では、 Vuetify の `<v-file-input>` コンポーネントを基に、ファイルサイズの上限設定を追加した `<file-input>` コンポーネントを実装していきながら、 `<v-form>` のバリデーション機構の理解、 `VInput` を継承した入力コンポーネントの拡張を目指します。
@@ -157,8 +158,8 @@ export default Vue.extend({
 `hasError() { return !this.input; }` とした結果、入力がなければ `error` であると認識されるようになりました。
 
 <figure>
-  <img src="/assets/blog/2/has-error.gif" alt="hasError() の override で入力エラーの判定が行われる様子">
-  <figcaption>hasError() の override で入力エラーの判定が行われる様子</figcaption>
+  <img src="/assets/blog/2/has-error.gif" alt="hasError() の override で任意の入力エラー判定を行う">
+  <figcaption>hasError() の override で任意の入力エラー判定を行う</figcaption>
 </figure>
 
 ### <file-input> コンポーネントの作成
