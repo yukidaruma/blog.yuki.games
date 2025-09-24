@@ -64,7 +64,7 @@ Google Play で Beta 版のアプリを公開した経験が過去にありま�
 ### [Emoji2Text](https://yukidaruma.github.io/emoji2text-font/demo.html) (フォント)
 😀 => `grinning_face` のように、「絵文字のコードポイントにその絵文字の名前を表示するグリフのフォント」というアイデアを思いつき、実際にフォントを作成してみました ([GitHub](https://github.com/yukidaruma/emoji2text-font)) 。
 
-![Showing glyph for snowman (U+2603) in FontForge](./20250901-fontforge-emoji2text.png)
+![Showing glyph for snowman (U+2603) in FontForge](./static/20250901-fontforge-emoji2text.png)
 
 具体的には次のような手順の操作を行う FontForge script により、フォントを生成しています。
 1. (`parse_emoji_test`) 絵文字の名称一覧データをパースする https://unicode.org/Public/draft/emoji/emoji-test.txt
@@ -98,7 +98,7 @@ Google Play で Beta 版のアプリを公開した経験が過去にありま�
   - コピペ/スクレイピング対策として、人間には読めて機械に読めない文章の Web サイト
     - ビルドシステムと統合して (例: Vite plugin) そのようなフォントを利用する Web サイトを作成できると考えています。
     - 当然、アクセシビリティの観点からは不適切です。
-- *トリビア*: Noto や Twitter Emoji といったフォントや Discord のようなアプリケーションは Regional Indicator を単体で使用できる絵文字のように取り扱っていますが、本来は単体で使用するものではないため、連続で入力したときに別の文字に変化してしまう現象が発生します: [Discordのキャプチャー動画](./20250901-discord.mp4)
+- *トリビア*: Noto や Twitter Emoji といったフォントや Discord のようなアプリケーションは Regional Indicator を単体で使用できる絵文字のように取り扱っていますが、本来は単体で使用するものではないため、連続で入力したときに別の文字に変化してしまう現象が発生します: [Discordのキャプチャー動画](./static/20250901-discord.mp4)
 
 [^emoji2text-2]: `Emoji2Text.ttf.woff2` ファイルがすでに 52.5kB と容量が小さいため、これ以上ファイルサイズを小さくすることが難しいです。 TTF や OTF のような無圧縮のフォントフォーマットでは十分に効果があります。
 
