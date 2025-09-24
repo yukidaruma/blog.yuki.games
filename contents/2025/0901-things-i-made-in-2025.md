@@ -1,13 +1,16 @@
-# 2025年に作ったもの
+---
+title: 2025年に個人で作ったもの
+lang: ja
+---
 
 この記事では、2025年のこれまでに私 [@yukidaruma](https://github.com/yukidaruma) が完成させたプロジェクトを紹介します。いずれのプロジェクトも MIT ライセンスの OSS として GitHub 上でソースコードを公開しています。
 
-## [Pokéfuta Tracker](https://pokefuta.yuki.games/)
+### [Pokéfuta Tracker](https://pokefuta.yuki.games/)
 Pokéfuta Tracker は日本全国に存在するポケふた (ポケモンが描かれたマンホールの蓋) の訪問を記録するためのアプリです ([GitHub](https://github.com/yukidaruma/pokefuta-tracker)) 。
 
 フレームワークとして Next.js を、 マップ表示部分には OpenLayers + OpenStreetMap を使用しています。
 
-### 最適化
+#### 最適化
 屋外のモバイルネットワーク接続で利用することを想定しているため、転送量の削減を含むパフォーマンスの最適化を行っています。
 
 - 日本中のポケふたを地図に表示する部分で、 OpenLayers の WebGL アイコンスプライト機能を利用する
@@ -26,17 +29,17 @@ Pokéfuta Tracker は日本全国に存在するポケふた (ポケモンが描
 - `i18next` の fallback 機能を無効化し、表示しない言語のテキストを読み込まないようにする
   - すべての言語の翻訳テキストに不足がなければ、 fallback text は不要であるため ([i18next - Discussions (#2035)](https://github.com/i18next/i18next/discussions/2035#discussioncomment-7011527))
 
-### 制作後記
+#### 制作後記
 ちょうど開発を始めた2025年2月頃に vibe coding のブームが起きているのを横目に見ながら、これまでの知識の組み合わせと伝統的な手書きコーディングで手作りの Web アプリ開発を目指しました。  
 モノ自体よくできていて便利だと思うのですが、 Google 検索に出てこず宣伝を行っていないのでおそらく誰にも使われていません… ([^pokefuta-1]) 。  
 いくつか新機能や、 Service Worker を活用してネットワーク接続がなくても利用できるようにするといったアイデアがありますが、利用者がいない状況のため開発の意欲を失っています。
 
 [^pokefuta-1]: 独自性の低いコンテンツと判定されてしまっているのか、 Google Search Console 上で `「ページはインデックスに登録されていません: クロール済み - インデックス未登録」` のステータスとなっています。[Bing にはインデックスされているようですが](https://www.bing.com/search?q=site%3Apokefuta.yuki.games)、特に日本では Bing の市場シェアが低く、事実上 Web に存在しない状態となっています。
 
-## [Livestream Chat Reader](https://chromewebstore.google.com/detail/livestream-chat-reader-ch/gpnckbhgpnjciklpoehkmligeaebigaa)
+### [Livestream Chat Reader](https://chromewebstore.google.com/detail/livestream-chat-reader-ch/gpnckbhgpnjciklpoehkmligeaebigaa)
 Livestream Chat Reader は、 YouTube/Twitch ライブ配信のコメントを読み上げる Google Chrome 向け拡張機能です ([GitHub](https://github.com/yukidaruma/LivestreamChatReader)) 。 Chrome Web Store にて公開されています。
 
-### 制作後記
+#### 制作後記
 Google Play で Beta 版のアプリを公開した経験が過去にありますが、個人で審査を経たアプリを製品としてリリースするのはこれが初めてです。
 設定確認用のテスト画面が拡張機能内に存在していて、その画面を利用する形の E2E テストも実装しています。
 
@@ -58,7 +61,7 @@ Google Play で Beta 版のアプリを公開した経験が過去にありま�
 [^wxt-2]: [Discord Server より](https://discord.com/channels/1263404974830915637/1264514968288759889/1388615767393829004)引用:  
 \> **Patryk Kuniczak**: WXT is a wayyyy far from us, i think it hasn't sense to maintain CEB longer, because we can't solve a couple issues in months, in this time WXT community can develop couple new features.
 
-## [Emoji2Text](https://yukidaruma.github.io/emoji2text-font/demo.html) (フォント)
+### [Emoji2Text](https://yukidaruma.github.io/emoji2text-font/demo.html) (フォント)
 😀 => `grinning_face` のように、「絵文字のコードポイントにその絵文字の名前を表示するグリフのフォント」というアイデアを思いつき、実際にフォントを作成してみました ([GitHub](https://github.com/yukidaruma/emoji2text-font)) 。
 
 ![Showing glyph for snowman (U+2603) in FontForge](./0901-fontforge-emoji2text.png)
@@ -76,7 +79,7 @@ Google Play で Beta 版のアプリを公開した経験が過去にありま�
 "3." について、プロトタイプでは `ccmp` を利用する実装となっていませんでした。実際に使用される文字の種類に対してフォントサイズが肥大化しすぎてしまったため、 `ccmp` を利用する実装へと変更しています。  
 "4." について、リガチャを使用するためには単体で使用されることがない文字 (例: `U+200D` (ZJW)) であってもコードポイントに対応するグリフが存在している必要があります。プロトタイプではすべての複数のコードポイントで表される絵文字について、毎回全コードポイント分のグリフを作成する実装となっていたため、この処理がコードポイントごとに一度だけ行われるように最適化を行っています。
 
-### 制作後記
+#### 制作後記
 手を動かしながらフォントを作成したり、 FontForge を利用してリリースされているフォントの内部構造を見たりしたことによって、フォントや絵文字について少し理解が深まりました。
 - おそらく FontForge が扱えるグリフの横幅に `int16` に由来する制限が存在しているため、横に長過ぎるグリフを作成できない
   - このため、性別や肌の色による絵文字の区別を行っていません
