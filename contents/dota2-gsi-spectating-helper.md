@@ -1,6 +1,7 @@
 ---
-is-archive: true
 title: 'Dota 2 Game State Integrationで遊んでみよう'
+published-at: 2016-11-21
+is-archive: true
 ---
 
 > [!NOTE]
