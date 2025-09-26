@@ -1,5 +1,6 @@
 ---
 title: 2025年に個人で作ったもの
+published-at: 2025-09-01
 lang: ja
 ---
 

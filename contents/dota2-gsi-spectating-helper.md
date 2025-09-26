@@ -1,5 +1,6 @@
 ---
 title: 'Dota 2 Game State Integration で遊んでみよう'
+published-at: 2016-11-21
 is-archive: true
 ---
 

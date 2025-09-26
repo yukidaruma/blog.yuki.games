@@ -1,6 +1,7 @@
 ---
-is-archive: true
 title: 'Vuetify: 入力コンポーネントにカスタムバリデーションを実装する'
+published-at: 2021-01-09
+is-archive: true
 ---
 
 この記事は、[2021年に作成し未公開となっていたブログ記事](https://github.com/yukidaruma/blog.yuki.games/blob/orphan-old/_posts/2-how-to-implement-custom-input-validation-for-vuetify.md)のメタデータのみを書き換えて再掲載するものです。
