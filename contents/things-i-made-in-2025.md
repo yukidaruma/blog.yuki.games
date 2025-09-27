@@ -1,6 +1,7 @@
 ---
 title: 2025年に個人で作ったもの
 published-at: 2025-09-01
+updated-at: 2025-09-28
 lang: ja
 ---
 
@@ -46,7 +47,8 @@ Google Play で Beta 版のアプリを公開した経験が過去にありま�
 
 - 当初は [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) を使用していましたが、リリースビルドでのテストでユーザーの操作なしで Web Speech API を使用して音声を再生できないことが判明したため、バックグラウンドで [Chrome 拡張用の `chrome.tts` API](https://developer.chrome.com/docs/extensions/reference/api/tts) を使用するように変更しています ([`yukidaruma/LivestreamChatReader@d11fd812`](https://github.com/yukidaruma/LivestreamChatReader/commit/d11fd8121f62a9fb7f4aa879f470a6013c3225af)) 。
 - [Jonghakseo/chrome-extension-boilerplate-react-vite](https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite) (以下、CEB) を boilerplate に使用して Chrome 拡張機能を実装しています。
-  しかしながら、これから新規に拡張機能を開発する場合には、以下の理由から [WXT](https://wxt.dev/) を使用して開発を行うことを推奨します。
+  しかしながら、これから新規に拡張機能を開発する場合には、以下の理由から [WXT](https://wxt.dev/) を使用して開発を行うことを推奨します。  
+  **UPDATE (2025-09-28)**: v2.0.0 のリリースとあわせて、 WXT への移行を完了しました。[別記事](migrate-chrome-extension-to-wxt.md)に詳細がありますので、ご興味があればそちらもご参照ください。
   - CEB は Owner の [@Jonghakseo](https://github.com/Jonghakseo) さんと、 Maintainer の [@PatrykKuniczak](https://github.com/PatrykKuniczak) さんの 2 人で開発が行われていましたが、 Discord Server のやり取りで 2 人とも開発を停止する意向を示しているため ([^wxt-1])
     - Maintainer である Patryk さんは WXT に対して CEB が遅れていて、もはや CEB のメンテナンスを行う意味がないと述べています ([^wxt-2])
   - 小さなパッケージの集合体の monorepo の構造になっているが、これによってビルド時間が長く、設定が複雑なものとなっているため
