@@ -1,6 +1,7 @@
 ---
 title: 'サイトリニューアル + Markdownブログを構築する (SvelteKit, mdsvex)'
 published-at: 2025-09-27
+updated-at: 2025-09-28
 ---
 
 ### これまでの私と個人サイト/ブログとの関わり
@@ -106,12 +107,56 @@ export default {
     ```css
     /* Run `npm i github-markdown-css prism-themes` beforehand */
     :global {
-  		@import 'github-markdown-css/github-markdown-dark.css';
+      @import 'github-markdown-css/github-markdown-dark.css';
       @import 'prism-themes/themes/prism-a11y-dark.css';
     }
     ```
 - Svelte 5.36+ (2025年7月) の実験的機能である [await](https://svelte.dev/docs/svelte/await-expressions) を利用することで、コンポーネントコード内で `await` を使用し SSR でのコンテンツ読み込みを実装しています
   - 参考にしたセットアップ [mvasigh/sveltekit-mdsvex-blog](https://github.com/mvasigh/sveltekit-mdsvex-blog) (2022年) では個別記事ページでも `import.meta.glob` を使用していたのですが、非効率であったため変更しています
+- **UPDATE (2025-09-28)**: GitHub / テキストエディタ上で Markdown ファイル間のリンクを機能させつつ Web 上では `.md` の拡張子をリンクの href から削除するため、 `rehype-urls` を使用するよう変更しました
+  <details>
+  <summary>svelte.config.js - mdsvex の rehypePlugins に追加</summary>
+
+  ```js
+  [
+    rehypeUrls,
+    function (url) {
+      if (url.pathname?.endsWith('.md')) {
+        url.pathname = url.pathname.slice(0, -3);
+      }
+      return url;
+    }
+  ]
+  ```
+  </details>
+- **UPDATE (2025-09-28)**: rss.xml を配信するようにしました ([`1eacdcc`](https://github.com/yukidaruma/yuki.games/commit/1eacdcc3003066b096b10b331df4512928d2fb74))
+  - ビルド時に rss.xml の内容は決定しているので、 [prerender の page option](https://svelte.dev/docs/kit/page-options#prerender) を使用して静的ファイルが生成されるようにしています
+    <details>
+    <summary>src/routes/rss.xml/+server.ts</summary>
+
+    ```ts
+    export const prerender = true;
+
+    const getBlogPosts = () => { /* ... */ };
+    const generateRss = () => { /* ... */ };
+    export const GET: RequestHandler = async () => {
+      const markdownFiles = import.meta.glob('../../../blog.yuki.games/contents/*.md', {
+        as: 'raw',
+        eager: true
+      });
+
+      const posts = getBlogPosts(markdownFiles).slice(0, 50); // Limit to latest 50 posts
+      const rssXml = generateRss(posts);
+
+      return new Response(rssXml, {
+        headers: {
+          'Content-Type': 'application/rss+xml; charset=utf-8',
+          'Cache-Control': 'max-age=3600'
+        }
+      });
+    };
+    ```
+    </details>
 
 #### 試行錯誤の記録
 今回のセットアップでは、 mdsvex との組み合わせによる制約に由来するパッケージ選定が多くなっています。以下に最終的なセットアップに至った説明を記載します。
@@ -120,7 +165,8 @@ export default {
   - symbolic link を利用して、 `public` フォルダ内に実際にファイルが存在するかのように見せかける (`ln -s ./blog.yuki.games/contents/static public/blog/static`)
     - おそらく Vite が `public/` フォルダ内の symlink を辿らないようで、意図通りに機能しなかった
   - Markdown 内の URL を動的に書き換え、 Github を CDN 代わりに利用してファイルを読み込む (`rehype-urls`, `rehype-url-inspector` など)
-    - 外部リンクに対して `target="_blank"` を追加するという使い方はできた一方で、いずれのライブラリも `href` や `src` を書き換えることができなかった
+    - ~~外部リンクに対して `target="_blank"` を追加するという使い方はできた一方で、いずれのライブラリも `href` や `src` を書き換えることができなかった~~  
+      **UPDATE (2025-09-28)**: `href` そのものではなく、 `pathname` を書き換えればリンクの href を変更できることがわかりました
   - mdsvex の拡張で処理できないか検討する (例: [mdsvex-relative-images](https://github.com/mattjennings/mdsvex-relative-images))
     - 初期状態では画像以外のリソースに対応していない (例: `<video>`)
   - サーバーに API ルートを追加する (意図した通りの動作を実現することができたが、問題があり却下)
