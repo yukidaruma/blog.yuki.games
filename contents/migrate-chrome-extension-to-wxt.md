@@ -153,7 +153,7 @@ CEB に含まれる [i18n パッケージ](https://github.com/Jonghakseo/chrome-
 CEB の環境変数管理は Bash スクリプト ([set_global_env.sh](https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite/blob/6fde1ace754505c3dc7b7df48d1a619e12aa42c4/bash-scripts/set_global_env.sh#L57)) を利用する形になっており、環境変数の追加や切り替えの操作が煩雑でした。また、`process.env` を参照する実装のため、content script から環境変数を利用できないという制約もありました。
 WXT への移行後は [Vite の環境変数機構](https://ja.vite.dev/guide/env-and-mode.html#env-variables) をそのまま利用できるようになり (例: `import.meta.env.VITE_FOO`)、環境変数を用いた機能の切り替えが簡単に実現できるようになりました。
 
-具体的な改善例として、 E2E テストにおける挙動の切り替えがあります。従来は [`navigator.webdriver`](https://developer.mozilla.org/ja/docs/Web/API/Navigator/webdriver) を利用して分岐していましたが、環境変数を用いた判定に変更することで、製品版では不要となるコードを tree-shake で削除できるようになりました（<a href="https://github.com/yukidaruma/LivestreamChatReader/commit/af7a9338f1471e15b06b0bd0471a4b83d238431a"><code>af7a933</code></a>）。
+具体的な改善例として、 E2E テストにおける挙動の切り替えがあります。従来は [`navigator.webdriver`](https://developer.mozilla.org/ja/docs/Web/API/Navigator/webdriver) を利用して分岐していましたが、環境変数を用いた判定に変更することで、製品版では不要となるコードを dead-code elimination で削除できるようになりました（<a href="https://github.com/yukidaruma/LivestreamChatReader/commit/af7a9338f1471e15b06b0bd0471a4b83d238431a"><code>af7a933</code></a>）。
 
 ### あとがき
 
