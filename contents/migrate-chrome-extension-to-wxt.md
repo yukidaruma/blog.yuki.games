@@ -55,7 +55,7 @@ packages:
 
 **E2E テストの移行**: Mocha + WebDriverIO の組み合わせから、 Playwright に移行しました (参考: [wxt-dev/examples (playwright-e2e-testing)](https://github.com/wxt-dev/examples/tree/main/examples/playwright-e2e-testing))。
 
-**Unit テストランナーの移行** もともと CEB には単体テストのセットアップが含まれておらず、 LivestreamChatReader では独自に Mocha を利用していました。 Bun 内臓のテストランナーを利用し Mocha への依存を削除するため、以下の変更を行っています。
+**Unit テストランナーの移行** もともと CEB には単体テストのセットアップが含まれておらず、 Livestream Chat Reader では独自に Mocha を利用していました。 Bun 内臓のテストランナーを利用し Mocha への依存を削除するため、以下の変更を行っています。
 ```diff
 - import { describe, it } from 'mocha';
 + import { describe, it } from 'bun:test';
