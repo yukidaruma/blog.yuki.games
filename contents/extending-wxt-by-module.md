@@ -1,6 +1,7 @@
 ---
 title: 'WXT をモジュールで拡張する'
 published-at: 2025-10-27
+updated-at: 2025-10-29
 ---
 
 ### 動機
@@ -13,7 +14,7 @@ published-at: 2025-10-27
 
 ### WXT モジュールの作り方
 
-NOTE: 以後の説明では、 [bun](https://bun.com/) を JavaScript Runtime / Package Manager / Bundler に使用しています。
+> [!NOTE] 以後の説明では、 [bun](https://bun.com/) を JavaScript Runtime / Package Manager / Bundler に使用しています。
 
 WXT のモジュール機構の詳細については [WXT Modules](https://wxt.dev/guide/essentials/wxt-modules.html) (公式ドキュメント) を、モジュールの実装例については [wxt-dev/wxt/packages@fad5ab6](https://github.com/wxt-dev/wxt/tree/fad5ab6c4457381179ed0adb52927bceb45d7f62/packages) をご参照ください。  
 また、作成した `wxt-module-clipboard` のソースコードやドキュメンテーションは [yukidaruma/wxt-module-clipboard](https://github.com/yukidaruma/wxt-module-clipboard) (GitHub) をご参照ください。
@@ -78,6 +79,9 @@ export default () => {
   setupClipboard();
 };
 ```
+
+> [!WARNING] **UPDATE (2025-10-29)** `import.meta.env.ENTRYPOINT` が Side Panel で使用できない問題が WXT のユーザーにより報告されていること、将来的に `import.meta.env.ENTRYPOINT` が廃止される可能性があることが WXT の開発者によってコメントされていることにご注意ください ([wxt-dev/wxt#1611](https://github.com/wxt-dev/wxt/issues/1611))。
+> > **[@aklinker1](https://github.com/aklinker1)**: That is because they're internal variables used by WXT. It's actually impossible to use vite define's for import.meta.env.ENTRYPOINT, specifically for HTML entrypoints. Since they're built in a single vite build, there's no way to specify individual values for each entrypoint. This is something I intend to fix before v1.0, but it will likely be via a global variable, not an env var.  
 
 #### モジュールにオプションを追加する
 
