@@ -5,7 +5,7 @@ updated-at: 2025-10-25
 ---
 
 ### 動機
-**UPDATE** (2025-10-25): この拡張機能が公開された翌日 (2025/10/22) に Bun の Web サイトが更新され ([X](https://x.com/bunjavascript/status/1980796044851245347))、 `<link rel="alternate" type="text/markdown">` のタグが削除された結果、 Bun のドキュメントで View in Markdown 拡張が機能しない状態となっています。
+> [!NOTE] **UPDATE** (2025-10-25): この拡張機能が公開された翌日 (2025/10/22) に Bun の Web サイトが更新され ([X](https://x.com/bunjavascript/status/1980796044851245347))、 `<link rel="alternate" type="text/markdown">` のタグが削除された結果、 Bun のドキュメントで View in Markdown 拡張が機能しない状態となっています。
 
 [bun.com/docs](https://bun.com/docs) のようないくつかの Web サイトで、 `<link rel="alternate" type="text/markdown" href="/foo.md">` の形のタグを用いて Markdown 版のページの存在を案内しています。
 

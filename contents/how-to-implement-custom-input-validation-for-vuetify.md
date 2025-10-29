@@ -4,7 +4,7 @@ published-at: 2021-01-09
 is-archive: true
 ---
 
-この記事は、[2021年に作成し未公開となっていたブログ記事](https://github.com/yukidaruma/blog.yuki.games/blob/orphan-old/_posts/2-how-to-implement-custom-input-validation-for-vuetify.md)のメタデータのみを書き換えて再掲載するものです。
+> [!NOTE] この記事は、[2021年に作成し未公開となっていたブログ記事](https://github.com/yukidaruma/blog.yuki.games/blob/orphan-old/_posts/2-how-to-implement-custom-input-validation-for-vuetify.md)のメタデータのみを書き換えて再掲載するものです。
 <!-- Vue.js コードブロックの言語指定を vue から html に変更しています。 -->
 
 ---
