@@ -18,4 +18,4 @@ Date format must be `YYYY-MM-DD`.
 ## License
 
 - **Text content**: Licensed under [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/deed) (CC BY 4.0). See [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0) file for details.
-- **Code content**: Code excerpts from external projects retain their original licenses. Code created specifically for this blog is licensed under [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](LICENSE), free for any use without attribution.
+- **Code content**: Code excerpts from external projects retain their original licenses. Code created specifically for this blog is licensed under [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/deed), free for any use without attribution. See [LICENSE-CC0](LICENSE-CC0) file for details.
