@@ -48,7 +48,7 @@ import { copyToClipboard } from "wxt-module-clipboard/client";
 
 #### 特定の entrypoint だけで実行されるスクリプトを作成する
 
-WXT には `entrypoints/` 以下に作成した特定のファイル名のファイルが実行ファイルとなる [entrypoint](https://wxt.dev/guide/essentials/entrypoints.html) と呼ばれる仕組みがあります。
+WXT には `entrypoints/` 以下に作成した特定のファイル名のファイルが自動的に Bundler による Bundle の対象となる、 [entrypoint](https://wxt.dev/guide/essentials/entrypoints.html) と呼ばれる仕組みがあります。
 
 モジュールから entrypoint にスクリプトを挿入するには `addWxtPlugin` を使用します。
 
@@ -100,11 +100,10 @@ declare module "wxt" {
 }
 
 export default defineWxtModule<ClipboardModuleOptions>({
-  configKey: "clipboard", // <-- 型定義と一致する必要がある
+  configKey: "clipboard", // InlineConfig の key と合わせる
   setup(wxt, options) {
-    // options でユーザーが設定した値にアクセス可能
+    // options でモジュールの設定にアクセスできる
     const useOptionalPermissions = options?.optionalPermissions ?? false;
-    // ...
   },
 });
 ```
