@@ -20,11 +20,8 @@ Dota 2 Game State Integration(以下GSI)はゲーム中のデータを取得す�
 主にLAN大会でのブースに使用されています。<br>
 ![LAN大会でのGSIの使用例](./static/archive/where-gsi-is-used.png) (画像は[Dota 2 公式Youtubeチャンネルのキャプチャ](https://www.youtube.com/watch?v=EzloD-t_Adk))
 
-Health・Manaと連動してLEDを点灯させている例です([Reddit](https://redd.it/5cqwgm))。
-<br>
-[https://gfycat.com/FrankFatherlyEnglishsetter (リンク切れ)](https://gfycat.com/FrankFatherlyEnglishsetter)
-
-<!-- more -->
+Health・Manaと連動してLEDを点灯させている例です([Reddit](https://redd.it/5cqwgm))。<br>
+[https://gfycat.com/FrankFatherlyEnglishsetter](https://gfycat.com/FrankFatherlyEnglishsetter (リンク切れ))
 
 GSIで取得できるものの、ゲーム中のHUDには表示されていないGPM/XPMのデータをオーバーレイ表示している例です([GitHub Repository](https://github.com/moonrobin/Dota-2-GPM-Overlay))。([imgur](http://imgur.com/eZnoMxs))
 
@@ -40,7 +37,7 @@ GSIで取得できるものの、ゲーム中のHUDには表示されていな�
 
 #### その他
 #### VACのリスク
-存在しないと言えます。試合中にDota 2クライアントがGSI用のcfgファイルで指定されたポートにPOSTでデータを送り続けているだけだからです。試合中に利用できるデータはHUDに表示されているデータとXPM/GPMのデータに限られ、有利/不利が起きることはありません((ドキュメントには書かれていないが、観戦時には全プレイヤーのデータやRoshanのStatusのデータも利用できる))。しかしながら、利用は自己責任で行ってください。
+存在しないと言えます。試合中にDota 2クライアントがGSI用のcfgファイルで指定されたポートにPOSTでデータを送り続けているだけだからです。試合中に利用できるデータはHUDに表示されているデータとXPM/GPMのデータに限られ、有利/不利が起きることはありません(ドキュメントには書かれていないが、観戦時には全プレイヤーのデータやRoshanのStatusのデータも利用できる)。しかしながら、利用は自己責任で行ってください。
 
 #### CS:GOについての技術情報
 GSIはCSGOにも対応しており、それについて[公式Wikiにドキュメントがある](https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Game_State_Integration)ので、そちらをご参照ください。ドキュメントによれば、Dota 2のGSIでは不可能な他のプレイヤーの情報を得ることが可能なようです。
@@ -71,8 +68,6 @@ GSIを使って何か作ってみた、という方がいらっしゃいまし�
 
 #### 始めるために
 前提として、[Node.js](https://nodejs.org/en/)とnpmがインストールされている必要があります。
-
-<!-- more -->
 
 1. `steamapps\common\dota 2 beta\game\dota\cfg\` に `gamestate_integration` フォルダを作り、そのフォルダ内に `gamestate_integration_*.cfg` ファイル(*は任意の名前で置き換える)を以下の内容で作成する。
 
@@ -134,8 +129,6 @@ GSIを使って何か作ってみた、という方がいらっしゃいまし�
 
 何を作るかに悩んだ末、観戦を助けるツールを作ってみることにしました。実際に動いている様子:  
 <video src="./static/archive/spectating-helper-demo.mp4" controls></video>
-
-<!-- more -->
 
 映像は映像はBorderless WindowにしてあるDotaクライアントを[SkyWay ScreenShare](https://html5experts.jp/yusuke-naka/16445/)でキャプチャーしたもの、音声はPlay sound in DesktopでDotaから出力されたものをそのまま聞く形で利用しています。
 
