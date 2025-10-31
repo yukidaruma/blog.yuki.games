@@ -1,11 +1,17 @@
 ---
-title: 'Chrome 拡張: View in Markdown を公開しました - <link rel="alternate" type="text/markdown"> を使おう'
+title: 'Chrome 拡張: View Markdown Source を公開しました - <link rel="alternate" type="text/markdown"> を使おう'
 published-at: 2025-10-21
-updated-at: 2025-10-25
+updated-at: 2025-10-31
 ---
 
+> [!NOTE] **UPDATE (2025-10-25)**: この拡張機能が公開された翌日 (2025/10/22) に Bun の Web サイトが更新され ([X](https://x.com/bunjavascript/status/1980796044851245347))、 `<link rel="alternate" type="text/markdown">` のタグが削除された結果、 Bun のドキュメントで View Markdown Source 拡張が機能しない状態となっています。
+> **UPDATE (2025-10-31)**: 拡張機能の名称を、 "View in Markdown" から、より適切な "View Markdown Source" へ改名しました。それに伴い、記事内の名称を更新しました。
+
+Chrome Web Store で公開しています:
+- [View Markdown Source](https://chromewebstore.google.com/detail/nklegbonbkblciabbopknmnjbfiapkec)
+- [Copy Markdown Source](https://chromewebstore.google.com/detail/cnklhppdaliclnpceipomjodihfnninf)
+
 ### 動機
-> [!NOTE] **UPDATE** (2025-10-25): この拡張機能が公開された翌日 (2025/10/22) に Bun の Web サイトが更新され ([X](https://x.com/bunjavascript/status/1980796044851245347))、 `<link rel="alternate" type="text/markdown">` のタグが削除された結果、 Bun のドキュメントで View in Markdown 拡張が機能しない状態となっています。
 
 [bun.com/docs](https://bun.com/docs) のようないくつかの Web サイトで、 `<link rel="alternate" type="text/markdown" href="/foo.md">` の形のタグを用いて Markdown 版のページの存在を案内しています。
 
@@ -14,7 +20,7 @@ updated-at: 2025-10-25
   <figcaption>bun.com/docs で <code>&lt;link rel="alternate" type="text/markdown"&gt;</code> が使用されている例</figcaption>
 </figure>
 
-LLM の普及により Markdown 版のドキュメントを利用する機会が増えています。そこで、Web ページが `<link>` タグで提供するメタデータを利用し、 Markdown 版ドキュメントに素早くアクセスできるようにするため、 [View in Markdown](https://chromewebstore.google.com/detail/nklegbonbkblciabbopknmnjbfiapkec) という Chrome 拡張を作成しました ([ソースコード (GitHub)](https://github.com/yukidaruma/view-in-markdown))。  
+LLM・Agent を用いたコーディングの普及により Markdown 版のドキュメントを利用する機会が増えています。そこで、Web ページが `<link>` タグで提供するメタデータを利用し、 Markdown 版ドキュメントに素早くアクセスできるようにするため、 [View Markdown Source](https://chromewebstore.google.com/detail/nklegbonbkblciabbopknmnjbfiapkec) という Chrome 拡張を作成しました ([ソースコード (GitHub)](https://github.com/yukidaruma/view-in-markdown))。  
 シンプルな単機能の拡張機能であり、以前 [Livestream Chat Reader](./things-i-made-in-2025.md#livestream-chat-reader) を作った経験から [WXT](https://wxt.dev/) を利用して簡単に作成することができました。
 
 この `<link>` タグの用法が面白いと感じていて、 yuki.games/blog でも同様の実装を行っています ([`yukidaruma/yuki.games@a6c563c`](https://github.com/yukidaruma/yuki.games/commit/b31b63bc71427ca255a5c38b01aad10a8fa95147#diff-b7310ac16ea84c71f28fa6506e4805b0ab2d64fedc19642dbb1497e816ecc269R13))。 
